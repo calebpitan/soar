@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import {
   CreditCard,
   Home,
@@ -10,9 +12,8 @@ import {
   User,
 } from '@/components/icons'
 import type { AppSidebarProps } from '@/components/sidebar'
-import * as React from 'react'
 
-export const SidebarItems: AppSidebarProps['items'] = [
+export const sidebarItems: AppSidebarProps['items'] = [
   { icon: <Home />, label: 'Dashboard', title: 'Overview', link: '/' },
   {
     icon: <Transactions />,

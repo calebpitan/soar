@@ -1,6 +1,6 @@
 import { WeeklyActivityProps } from '../weekly-activity'
 
-export const WeeklyActivities: WeeklyActivityProps['summary'] = [
+export const weeklyActivities: WeeklyActivityProps['summary'] = [
   {
     day: 'Sat',
     totalDeposit: '240',

@@ -1,6 +1,6 @@
 import { ExpenseStatsProps } from '../expense-statistics'
 
-export const ExpenseStatistics: ExpenseStatsProps['stats'] = [
+export const expenseStatistics: ExpenseStatsProps['stats'] = [
   {
     item: 'Entertainment',
     ratio: 0.3,
