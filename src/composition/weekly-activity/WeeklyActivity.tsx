@@ -1,3 +1,7 @@
+import * as React from 'react'
+
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
+
 import { Paper } from '@/components/paper'
 import {
   ChartConfig,
@@ -9,8 +13,6 @@ import {
 } from '@/components/ui/chart'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { cn } from '@/lib/utils'
-import * as React from 'react'
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 
 export type WklyActivitySummary = {
   day: string
@@ -39,7 +41,13 @@ export const WeeklyActivity: React.FC<WeeklyActivityProps> = ({ className, summa
   return (
     <Paper className={cn('md:p-6', className)} {...props}>
       <ChartContainer config={chartConfig}>
-        <BarChart accessibilityLayer data={summary} barSize={barSize} barGap={barSize}>
+        <BarChart
+          accessibilityLayer
+          data={summary}
+          barSize={barSize}
+          barGap={barSize}
+          margin={{ left: -20, right: 12 }}
+        >
           <CartesianGrid vertical={false} />
           <XAxis dataKey="day" tickLine={false} tickMargin={10} axisLine={false} />
           <YAxis tickLine={false} tickMargin={10} axisLine={false} />
