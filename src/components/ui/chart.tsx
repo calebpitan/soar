@@ -1,4 +1,5 @@
 import * as React from 'react'
+
 import * as RechartsPrimitive from 'recharts'
 
 import { cn } from '@/lib/utils'
@@ -36,9 +37,11 @@ const ChartContainer = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<'div'> & {
     config: ChartConfig
+    width?: React.ComponentProps<typeof RechartsPrimitive.ResponsiveContainer>['width']
+    height?: React.ComponentProps<typeof RechartsPrimitive.ResponsiveContainer>['height']
     children: React.ComponentProps<typeof RechartsPrimitive.ResponsiveContainer>['children']
   }
->(({ id, className, children, config, ...props }, ref) => {
+>(({ id, className, children, config, width, height, ...props }, ref) => {
   const uniqueId = React.useId()
   const chartId = `chart-${id || uniqueId.replace(/:/g, '')}`
 
@@ -55,7 +58,9 @@ const ChartContainer = React.forwardRef<
         {...props}
       >
         <ChartStyle id={chartId} config={config} />
-        <RechartsPrimitive.ResponsiveContainer>{children}</RechartsPrimitive.ResponsiveContainer>
+        <RechartsPrimitive.ResponsiveContainer width={width} height={height}>
+          {children}
+        </RechartsPrimitive.ResponsiveContainer>
       </div>
     </ChartContext.Provider>
   )
