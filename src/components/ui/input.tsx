@@ -35,13 +35,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div
         className={cn(
-          'flex items-center h-10 w-full rounded-md border border-input bg-background px-4 py-2 space-x-3  ring-offset-background [&:has(:focus-visible)]:ring-1 [&:has(:focus-visible)]:ring-ring [&:has(:focus-visible)]:ring-offset-0',
+          'flex items-center h-10 rounded-md border border-input bg-background px-4 py-2 space-x-3 [&:not(:has(:focus-visible))]:hover:border-gray-200 ring-offset-background [&:has(:focus-visible)]:ring-1 [&:has(:focus-visible)]:ring-ring [&:has(:focus-visible)]:ring-offset-0',
           rootClassName,
         )}
         {...rootProps}
       >
         <InputAddOn>{prependNode}</InputAddOn>
-        <InputBase className={cn(className)} {...props} ref={ref} />
+        <InputBase className={cn('grow', className)} {...props} ref={ref} />
         <InputAddOn>{appendNode}</InputAddOn>
       </div>
     )
