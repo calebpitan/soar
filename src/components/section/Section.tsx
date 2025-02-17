@@ -16,7 +16,7 @@ export const Section = React.forwardRef<HTMLDivElement, SectionProps>(
     return (
       <div data-component="Section" className={cn('flex flex-col', rootClassName)} {...rootProps}>
         {label && (
-          <div className="flex items-center mb-6">
+          <div className="flex items-center mb-6 text-gray-700">
             <div className="font-semibold text-base md:text-xl inline">{label}</div>
             {action && (
               <a

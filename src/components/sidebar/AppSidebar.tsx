@@ -1,4 +1,9 @@
 import * as React from 'react'
+
+import { cn } from '@/lib/utils'
+import { isFn } from '@/utils/utils'
+
+import { Icon } from '../Icon'
 import {
   Sidebar,
   SidebarContent,
@@ -7,9 +12,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '../ui/sidebar'
-import { Icon } from '../Icon'
-import { isFn } from '@/utils/utils'
-import { cn } from '@/lib/utils'
 
 type SidebarItem = {
   title: string
@@ -41,7 +43,7 @@ export const AppSidebar = React.forwardRef<HTMLDivElement, AppSidebarProps>(
                     <a href={item.link} className="rounded-none pl-6 py-8">
                       <div
                         className={cn('absolute', {
-                          'bg-zinc-950 w-2 left-0 h-full rounded-ee-md rounded-se-md': isActive,
+                          'bg-zinc-950 w-1.5 left-0 h-full rounded-ee-md rounded-se-md': isActive,
                         })}
                       />
 
@@ -49,7 +51,14 @@ export const AppSidebar = React.forwardRef<HTMLDivElement, AppSidebarProps>(
                         {item.icon}
                       </Icon>
 
-                      <span className={cn('font-semibold', textInactive)}>{item.label}</span>
+                      <span
+                        className={cn(
+                          'font-semibold lg:font-medium text-sm md:text-base lg:text-lg',
+                          textInactive,
+                        )}
+                      >
+                        {item.label}
+                      </span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
