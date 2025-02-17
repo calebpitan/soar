@@ -105,11 +105,11 @@ export default function Home({ fonts }: PassedProps) {
         </Section>
 
         <Section className="grid grid-cols-5 gap-8 items-start auto-rows-min">
-          <Section label="Quick Transfer" rootProps={{ className: 'col-span-5 lg:col-span-2' }}>
+          <Section label="Quick Transfer" rootProps={{ className: 'col-span-5 xl:col-span-2' }}>
             <QuickTransfer contacts={transferContacts} />
           </Section>
 
-          <Section label="Balance History" rootProps={{ className: 'col-span-5 lg:col-span-3' }}>
+          <Section label="Balance History" rootProps={{ className: 'col-span-5 xl:col-span-3' }}>
             <BalanceHistory history={balanceHistory} />
           </Section>
         </Section>

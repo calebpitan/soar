@@ -198,7 +198,7 @@ export const EditProfileSettings: React.FC<EditProfileSettingsProps> = ({
       <div className="w-full">
         <Form {...form}>
           <form
-            className="flex flex-col lg:grid lg:grid-cols-2 gap-6 xl:gap-8"
+            className="flex flex-col xl:grid xl:grid-cols-2 gap-6 xl:gap-8"
             onSubmit={form.handleSubmit(onSubmit)}
           >
             {formConfigs.map((cfg) => {
@@ -231,7 +231,7 @@ export const EditProfileSettings: React.FC<EditProfileSettingsProps> = ({
               )
             })}
 
-            <Button className="col-span-2 justify-self-end lg:w-49 h-10 lg:h-12" type="submit">
+            <Button className="col-span-2 justify-self-end xl:w-49 h-10 xl:h-12" type="submit">
               Save
             </Button>
           </form>
