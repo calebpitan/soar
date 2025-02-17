@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import { maskCardNumber } from '@/utils/utils'
 import { cva } from 'class-variance-authority'
 import * as React from 'react'
 
@@ -117,7 +118,7 @@ export const PaymentCard: React.FC<PaymentCardProps> = ({
         )}
       >
         <div className="text-2xl font-semibold">
-          {details.number.replace(/(?<=\d{4}\s)(?:\d{4}\s?){2}(?=\s\d{4})/, '**** ****')}
+          {maskCardNumber(details.number)}
         </div>
         <div
           style={{
