@@ -90,16 +90,18 @@ export const QuickTransfer: React.FC<QuickTransferProps> = ({ className, contact
             })}
 
             <Button
+              className="w-12 h-12 rounded-full bg-white text-gray-400 hover:bg-gray-100 absolute left-2 top-2/3 -translate-y-1/2 z-10"
               id="q-trf-swiper-prev"
               size="icon"
-              className="w-12 h-12 rounded-full bg-white text-gray-400 hover:bg-gray-100 absolute left-2 top-2/3 -translate-y-1/2 z-10"
+              aria-label="Previous"
             >
               <ChevronLeft />
             </Button>
             <Button
+              className="w-12 h-12 rounded-full bg-white text-gray-400 hover:bg-gray-100 absolute right-2 top-2/3 -translate-y-1/2 z-10"
               id="q-trf-swiper-next"
               size="icon"
-              className="w-12 h-12 rounded-full bg-white text-gray-400 hover:bg-gray-100 absolute right-2 top-2/3 -translate-y-1/2 z-10"
+              aria-label="Next"
             >
               <ChevronRight />
             </Button>
@@ -118,8 +120,8 @@ export const QuickTransfer: React.FC<QuickTransferProps> = ({ className, contact
             appendNode={
               <Button className="rounded-full h-11 w-30 me-[calc(1px+var(--spacing)*-6)]">
                 Send{' '}
-                <Icon scale={1.25}>
-                  <Send />
+                <Icon scale={1.125}>
+                  <Send className="size-auto" />
                 </Icon>
               </Button>
             }
