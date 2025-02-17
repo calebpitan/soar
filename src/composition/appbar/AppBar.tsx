@@ -1,11 +1,13 @@
+import * as React from 'react'
+
+import Image from 'next/image'
+
 import { Icon } from '@/components/Icon'
 import { Hamburger, NotificationOutlined, Search, SettingsOutlined } from '@/components/icons'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useSidebar } from '@/components/ui/sidebar'
 import { cn } from '@/lib/utils'
-import Image from 'next/image'
-import * as React from 'react'
 
 export interface AppBarProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -67,9 +69,10 @@ export const AppBar = React.forwardRef<HTMLDivElement, AppBarProps>(
 
           <div className="hidden space-x-8 lg:[display:initial]">
             <Button
-              className="rounded-full bg-background-alt border-transparent"
+              className="rounded-full bg-background-alt border-transparent hover:bg-gray-300 transition-colors"
               variant="outline"
               size="icon"
+              aria-label='Settings'
               asChild
             >
               <a href="/settings">
@@ -80,9 +83,10 @@ export const AppBar = React.forwardRef<HTMLDivElement, AppBarProps>(
             </Button>
 
             <Button
-              className="rounded-full bg-background-alt border-transparent"
+              className="rounded-full bg-background-alt border-transparent hover:bg-gray-300 transition-colors"
               variant="outline"
               size="icon"
+              aria-label='Notifications'
               asChild
             >
               <a href="/notifications">
@@ -94,7 +98,7 @@ export const AppBar = React.forwardRef<HTMLDivElement, AppBarProps>(
           </div>
 
           {/* Avatar on Small Tablet to Larger Devices  */}
-          <div className="hidden rounded-full md:[display:initial]">
+          <div className="hidden rounded-full md:[display:initial] hover:ring-3 hover:ring-gray-300 transition-shadow">
             <Image src={avatarUrl} alt="avatar" width={48} height={48} />
           </div>
         </div>
