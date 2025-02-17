@@ -1,12 +1,15 @@
-import { AppSidebar, AppSidebarProps } from '@/components/sidebar'
 import * as React from 'react'
-import { SidebarItems } from '../data/sidebar-items'
-import { SidebarProvider } from '@/components/ui/sidebar'
+
 import { useRouter } from 'next/router'
+
 import { Icon } from '@/components/Icon'
 import { Task } from '@/components/icons'
-import { AppBar } from '../appbar'
+import { AppSidebar, AppSidebarProps } from '@/components/sidebar'
+import { SidebarProvider } from '@/components/ui/sidebar'
 import { cn } from '@/lib/utils'
+
+import { AppBar } from '../appbar'
+import { sidebarItems } from '../data/sidebar-items'
 
 // export interface AppHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
 // export interface AppLayoutProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -28,7 +31,7 @@ export const AppLayout = React.forwardRef<HTMLDivElement, React.HTMLAttributes<H
   ({ className, children, ...props }, ref) => {
     const router = useRouter()
     const activePredicate: AppSidebarProps['active'] = (item) => router.pathname === item.link
-    const activeItem = SidebarItems.find(activePredicate)
+    const activeItem = sidebarItems.find(activePredicate)
 
     return (
       <div
@@ -39,7 +42,7 @@ export const AppLayout = React.forwardRef<HTMLDivElement, React.HTMLAttributes<H
       >
         <SidebarProvider className="w-full">
           <AppSidebar
-            items={SidebarItems}
+            items={sidebarItems}
             active={activePredicate}
             header={<AppHeader />}
             side="left"
