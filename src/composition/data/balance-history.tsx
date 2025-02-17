@@ -42,7 +42,7 @@ export const balanceHistory: BalanceHistoryProps['history'] = [
     timestamp: '2025-09-25',
   },
   {
-    amount: '790',
+    amount: '750',
     timestamp: '2025-10-01',
   },
   {
@@ -50,11 +50,11 @@ export const balanceHistory: BalanceHistoryProps['history'] = [
     timestamp: '2025-10-03',
   },
   {
-    amount: '600',
+    amount: '590',
     timestamp: '2025-10-16',
   },
   {
-    amount: '400',
+    amount: '380',
     timestamp: '2025-10-27',
   },
   {
