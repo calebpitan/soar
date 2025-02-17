@@ -19,6 +19,5 @@
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "importOrderGroupNamespaceSpecifiers": true,
-  "importOrderParserPlugins": ["importAssertions", "typescript", "decorators-legacy"],
   "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }
