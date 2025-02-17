@@ -53,7 +53,7 @@ export const AppSidebar = React.forwardRef<HTMLDivElement, AppSidebarProps>(
 
                       <span
                         className={cn(
-                          'font-semibold lg:font-medium text-sm md:text-base lg:text-lg',
+                          'font-semibold md:font-medium text-sm md:text-base',
                           textInactive,
                         )}
                       >
