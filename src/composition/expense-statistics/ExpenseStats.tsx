@@ -43,14 +43,13 @@ const CustomizedLabel = ({
   outerRadius,
   percent,
   item,
-  ...args
 }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
 Record<string, any>) => {
   const RADIAN = Math.PI / 180
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5
   const x = cx + radius * Math.cos(-midAngle * RADIAN)
   const y = cy + radius * Math.sin(-midAngle * RADIAN)
-  console.log(args)
+
   return (
     <React.Fragment>
       <text
@@ -94,8 +93,8 @@ export const ExpenseStats: React.FC<ExpenseStatsProps> = ({ className, stats, ..
             {data.map((entry, index) => {
               const RADIAN = Math.PI / 180
               const midAngle =
-                ((entry.ratio / 1) * 360) / 2 +
-                data.slice(0, index).reduce((sum, d) => sum + (d.ratio / 1) * 360, 0)
+                ((entry.ratio) * 360) / 2 +
+                data.slice(0, index).reduce((sum, d) => sum + (d.ratio) * 360, 0)
               const offsetX = Math.cos(-midAngle * RADIAN) * 5 // Move outward
               const offsetY = Math.sin(-midAngle * RADIAN) * 5
               return (
