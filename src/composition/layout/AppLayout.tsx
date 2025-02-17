@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import { Icon } from '@/components/Icon'
@@ -40,6 +41,11 @@ export const AppLayout = React.forwardRef<HTMLDivElement, React.HTMLAttributes<H
         ref={ref}
         {...props}
       >
+        <Head>
+          <title>{activeItem?.title ?? 'Soar Task'}</title>
+          <meta name="description" content="Caleb's Implementation of the Sora Assessment Task" />
+        </Head>
+
         <SidebarProvider className="w-full">
           <AppSidebar
             items={sidebarItems}
