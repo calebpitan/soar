@@ -1,9 +1,10 @@
-import { cn } from '@/lib/utils'
 import * as React from 'react'
+
+import { cn } from '@/lib/utils'
 
 export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   label?: React.ReactNode
-  action?: React.ReactNode
+  action?: { link: string; label: string; fn?: () => void }
   rootProps?: React.HTMLAttributes<HTMLDivElement>
 }
 
@@ -15,9 +16,17 @@ export const Section = React.forwardRef<HTMLDivElement, SectionProps>(
     return (
       <div data-component="Section" className={cn('flex flex-col', rootClassName)} {...rootProps}>
         {label && (
-          <div className="flex mb-6">
+          <div className="flex items-center mb-6">
             <div className="font-semibold text-base md:text-xl inline">{label}</div>
-            {action && <div className="font-medium text-sm ms-auto">{action}</div>}
+            {action && (
+              <a
+                className="font-semibold text-sm leading-none ms-auto hover:underline transition-all"
+                {...(action.link ? { href: action.link } : null)}
+                {...(action.fn ? { onClick: action.fn } : null)}
+              >
+                {action.label}
+              </a>
+            )}
           </div>
         )}
         <div className={cn('h-full', className)} ref={ref} {...props}>
