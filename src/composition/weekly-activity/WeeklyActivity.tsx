@@ -40,7 +40,7 @@ export const WeeklyActivity: React.FC<WeeklyActivityProps> = ({ className, summa
   const barSize = isMobile ? 8 : 16
   return (
     <Paper className={cn('md:p-6', className)} {...props}>
-      <ChartContainer config={chartConfig}>
+      <ChartContainer className='aspect-auto' config={chartConfig} width="100%" height={320 - 48}>
         <BarChart
           accessibilityLayer
           data={summary}

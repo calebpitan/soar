@@ -1,9 +1,10 @@
+import * as React from 'react'
+
+import { Cell, Pie, PieChart } from 'recharts'
+
 import { Paper } from '@/components/paper'
 import { ChartConfig, ChartContainer } from '@/components/ui/chart'
 import { cn } from '@/lib/utils'
-
-import * as React from 'react'
-import { Cell, Pie, PieChart } from 'recharts'
 
 type StatsData = { item: string; ratio: number; highlight: string }
 
@@ -56,6 +57,7 @@ Record<string, any>) => {
         x={x}
         y={y}
         fill="white"
+        className='font-semibold'
         textAnchor={x > cx ? 'start' : 'middle'}
         dominantBaseline="central"
       >
@@ -65,6 +67,7 @@ Record<string, any>) => {
         x={x}
         y={y + 20}
         fill="white"
+        className='tracking-tighter font-semibold'
         textAnchor={x > cx ? 'start' : 'middle'}
         dominantBaseline="auto"
       >
@@ -80,7 +83,7 @@ export const ExpenseStats: React.FC<ExpenseStatsProps> = ({ className, stats, ..
 
   return (
     <Paper className={cn('md:p-6', className)} {...props}>
-      <ChartContainer className="mx-auto aspect-square" config={chartConfig}>
+      <ChartContainer className="mx-auto aspect-auto" config={chartConfig} height={320 - 48}>
         <PieChart>
           <Pie
             data={data}
@@ -93,8 +96,8 @@ export const ExpenseStats: React.FC<ExpenseStatsProps> = ({ className, stats, ..
             {data.map((entry, index) => {
               const RADIAN = Math.PI / 180
               const midAngle =
-                ((entry.ratio) * 360) / 2 +
-                data.slice(0, index).reduce((sum, d) => sum + (d.ratio) * 360, 0)
+                (entry.ratio * 360) / 2 +
+                data.slice(0, index).reduce((sum, d) => sum + d.ratio * 360, 0)
               const offsetX = Math.cos(-midAngle * RADIAN) * 5 // Move outward
               const offsetY = Math.sin(-midAngle * RADIAN) * 5
               return (

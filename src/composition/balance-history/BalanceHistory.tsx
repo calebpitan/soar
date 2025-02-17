@@ -40,11 +40,11 @@ export const BalanceHistory: React.FC<BalanceHistoryProps> = ({ className, histo
 
   return (
     <Paper data-composition="BalanceHistory" className={cn('md:p-8', className)} {...props}>
-      <ChartContainer config={chartConfig}>
+      <ChartContainer className='aspect-auto' config={chartConfig} width="100%" height={295 - 64}>
         <AreaChart data={transformedHistory} margin={{ left: -20, right: 12 }} accessibilityLayer>
           <defs>
             <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="var(--color-amount)" stopOpacity={0.68} />
+              <stop offset="5%" stopColor="var(--color-amount)" stopOpacity={0.48} />
               <stop offset="95%" stopColor="var(--color-amount)" stopOpacity={0.01} />
             </linearGradient>
           </defs>

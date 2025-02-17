@@ -30,7 +30,7 @@ export const QuickTransfer: React.FC<QuickTransferProps> = ({ className, contact
           <Swiper
             autoplay={true}
             cssMode={false}
-            spaceBetween={8}
+            spaceBetween={4}
             slidesPerView="auto"
             slidesPerGroupAuto={true}
             slidesOffsetBefore={24 * 3}
@@ -50,7 +50,7 @@ export const QuickTransfer: React.FC<QuickTransferProps> = ({ className, contact
                 <SwiperSlide style={{ width: 'auto' }} key={index}>
                   <div
                     className={cn(
-                      'p-3 my-2 flex flex-col items-center w-15 md:w-30 rounded-3xl cursor-default [&:not(.selected)]:hover:bg-gray-100',
+                      'p-3 my-2 flex flex-col items-center w-25 md:w-30 rounded-3xl cursor-default [&:not(.selected)]:hover:bg-gray-100',
                       { 'ring-0 ring-ring bg-blue-300/20 selected': isSelected },
                     )}
                     role="button"
