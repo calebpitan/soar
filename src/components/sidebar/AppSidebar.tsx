@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import Link from 'next/link'
+
 import { cn } from '@/lib/utils'
 import { isFn } from '@/utils/utils'
 
@@ -40,7 +42,7 @@ export const AppSidebar = React.forwardRef<HTMLDivElement, AppSidebarProps>(
               return (
                 <SidebarMenuItem key={index}>
                   <SidebarMenuButton className="relative" asChild>
-                    <a href={item.link} className="rounded-none pl-6 py-8">
+                    <Link href={item.link} className="rounded-none pl-6 py-8">
                       <div
                         className={cn('absolute', {
                           'bg-zinc-950 w-1.5 left-0 h-full rounded-ee-md rounded-se-md': isActive,
@@ -59,7 +61,7 @@ export const AppSidebar = React.forwardRef<HTMLDivElement, AppSidebarProps>(
                       >
                         {item.label}
                       </span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               )

@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { Icon } from '@/components/Icon'
 import { Hamburger, NotificationOutlined, Search, SettingsOutlined } from '@/components/icons'
@@ -75,11 +76,11 @@ export const AppBar = React.forwardRef<HTMLDivElement, AppBarProps>(
               aria-label='Settings'
               asChild
             >
-              <a href="/settings">
+              <Link href="/settings">
                 <Icon className="text-gray-500" scale={1.175}>
                   <SettingsOutlined className="size-auto" />
                 </Icon>
-              </a>
+              </Link>
             </Button>
 
             <Button
@@ -89,11 +90,11 @@ export const AppBar = React.forwardRef<HTMLDivElement, AppBarProps>(
               aria-label='Notifications'
               asChild
             >
-              <a href="/notifications">
+              <Link href="/notifications">
                 <Icon className="text-blue-500" scale={1.175}>
                   <NotificationOutlined className="size-auto" />
                 </Icon>
-              </a>
+              </Link>
             </Button>
           </div>
 
