@@ -124,18 +124,32 @@ const formConfigs = [
   },
 ] as const satisfies Array<FormConfig>
 
-const formSchema = z.object({
-  name: z.string(),
-  username: z.string().min(3, { message: 'Username cannot be less than 3 characters' }),
-  email: z.string().email({ message: 'A valid email address is expected' }),
-  password: z.string().min(8, { message: 'Password cannot be less than 8 characters' }).readonly(),
-  dob: z.string().date(),
-  presentAddress: z.string(),
-  permanentAddress: z.string(),
-  city: z.string(),
-  postalCode: z.string(),
-  country: z.string(),
-})
+const formSchema = z
+  .object({
+    name: z.string(),
+    username: z.string().min(3, { message: 'Username cannot be less than 3 characters' }),
+    email: z.string().email({ message: 'A valid email address is expected' }),
+    password: z
+      .string()
+      .min(8, { message: 'Password cannot be less than 8 characters' })
+      .readonly(),
+    dob: z.string().date(),
+    presentAddress: z.string(),
+    permanentAddress: z.string(),
+    city: z.string(),
+    postalCode: z.string(),
+    country: z.string(),
+  })
+  .required({
+    city: true,
+    country: true,
+    presentAddress: true,
+    dob: true,
+    email: true,
+    username: true,
+    name: true,
+    postalCode: true,
+  })
 
 export const EditProfileSettings: React.FC<EditProfileSettingsProps> = ({
   className,

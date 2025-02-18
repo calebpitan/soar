@@ -1,5 +1,6 @@
-import { cn } from '@/lib/utils'
 import * as React from 'react'
+
+import { cn } from '@/lib/utils'
 
 export const Paper: React.FC<React.ComponentProps<'div'>> = ({ className, children, ...props }) => {
   return (

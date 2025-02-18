@@ -1,7 +1,9 @@
+import * as React from 'react'
+
+import { cva } from 'class-variance-authority'
+
 import { cn } from '@/lib/utils'
 import { maskCardNumber } from '@/utils/utils'
-import { cva } from 'class-variance-authority'
-import * as React from 'react'
 
 export type PaymentCardDetails = {
   balance: string | number
@@ -117,9 +119,7 @@ export const PaymentCard: React.FC<PaymentCardProps> = ({
           },
         )}
       >
-        <div className="text-2xl font-semibold">
-          {maskCardNumber(details.number)}
-        </div>
+        <div className="text-2xl font-semibold">{maskCardNumber(details.number)}</div>
         <div
           style={{
             backgroundImage: pciBgImage,

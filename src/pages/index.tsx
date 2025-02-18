@@ -46,11 +46,12 @@ export default function Home({ fonts, profile }: PassedProps) {
     },
   }
 
-  if (result.isPending) return (
-    <AppLayout className="bg-background-alt" profile={profile}>
-      <PageLoader />
-    </AppLayout>
-  )
+  if (result.isPending)
+    return (
+      <AppLayout className="bg-background-alt" profile={profile}>
+        <PageLoader />
+      </AppLayout>
+    )
   if (result.error) return 'Error occured'
 
   return (

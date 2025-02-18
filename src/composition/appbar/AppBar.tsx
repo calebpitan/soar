@@ -73,7 +73,7 @@ export const AppBar = React.forwardRef<HTMLDivElement, AppBarProps>(
               className="rounded-full bg-background-alt border-transparent hover:bg-gray-300 transition-colors"
               variant="outline"
               size="icon"
-              aria-label='Settings'
+              aria-label="Settings"
               asChild
             >
               <Link href="/settings">
@@ -87,7 +87,7 @@ export const AppBar = React.forwardRef<HTMLDivElement, AppBarProps>(
               className="rounded-full bg-background-alt border-transparent hover:bg-gray-300 transition-colors"
               variant="outline"
               size="icon"
-              aria-label='Notifications'
+              aria-label="Notifications"
               asChild
             >
               <Link href="/notifications">

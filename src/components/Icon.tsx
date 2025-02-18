@@ -1,5 +1,6 @@
-import { cn } from '@/lib/utils'
 import * as React from 'react'
+
+import { cn } from '@/lib/utils'
 
 export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
   scale?: number

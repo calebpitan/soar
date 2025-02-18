@@ -57,7 +57,7 @@ Record<string, any>) => {
         x={x}
         y={y}
         fill="white"
-        className='font-semibold'
+        className="font-semibold"
         textAnchor={x > cx ? 'start' : 'middle'}
         dominantBaseline="central"
       >
@@ -67,7 +67,7 @@ Record<string, any>) => {
         x={x}
         y={y + 20}
         fill="white"
-        className='tracking-tighter font-semibold'
+        className="tracking-tighter font-semibold"
         textAnchor={x > cx ? 'start' : 'middle'}
         dominantBaseline="auto"
       >
@@ -82,7 +82,7 @@ export const ExpenseStats: React.FC<ExpenseStatsProps> = ({ className, stats, ..
   const data = transformData(stats)
 
   return (
-    <Paper className={cn('md:p-6', className)} {...props}>
+    <Paper data-composition="ExpenseStatistics" className={cn('md:p-6', className)} {...props}>
       <ChartContainer className="mx-auto aspect-auto" config={chartConfig} height={320 - 48}>
         <PieChart>
           <Pie

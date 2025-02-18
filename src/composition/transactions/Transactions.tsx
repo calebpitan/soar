@@ -1,6 +1,7 @@
+import * as React from 'react'
+
 import { Paper } from '@/components/paper'
 import { cn } from '@/lib/utils'
-import * as React from 'react'
 
 export type TransactionDetails = {
   narration: string
