@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import * as React from 'react'
 
 import { useQuery } from '@tanstack/react-query'
 
@@ -10,19 +10,20 @@ import { Section } from '@/components/section/Section'
 import { BalanceHistory } from '@/composition/balance-history'
 import { ExpenseStats } from '@/composition/expense-statistics'
 import { AppLayout } from '@/composition/layout'
+import { PageLoader } from '@/composition/page-loader'
 import { QuickTransfer } from '@/composition/quick-transfer'
 import { Transactions } from '@/composition/transactions'
 import { WeeklyActivity } from '@/composition/weekly-activity'
 import { cn } from '@/lib/utils'
-import { getOverview } from '@/services/api'
+import { getOverviewForUser } from '@/services/api'
 
 import type { PassedProps } from './_app'
 
-export default function Home({ fonts }: PassedProps) {
-  const [height, setHeight] = useState(0)
+export default function Home({ fonts, profile }: PassedProps) {
+  const [height, setHeight] = React.useState(0)
   const result = useQuery({
     queryKey: ['overview'],
-    queryFn: getOverview,
+    queryFn: () => getOverviewForUser(1),
   })
 
   const breakpoints: SwiperOptions['breakpoints'] = {
@@ -45,12 +46,16 @@ export default function Home({ fonts }: PassedProps) {
     },
   }
 
-  if (result.isPending) return 'Loading...'
+  if (result.isPending) return (
+    <AppLayout className="bg-background-alt" profile={profile}>
+      <PageLoader />
+    </AppLayout>
+  )
   if (result.error) return 'Error occured'
 
   return (
     <div className={cn(fonts.inter.className)}>
-      <AppLayout>
+      <AppLayout profile={result.data.profile}>
         <Section className="grid grid-cols-3 gap-8 items-start auto-rows-min">
           <Section
             label="My Cards"

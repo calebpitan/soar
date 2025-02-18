@@ -23,6 +23,13 @@ export async function getProfiles() {
   return profiles
 }
 
+export async function getProfileById(id: number) {
+  await sleep(3000)
+  const profile = profiles[id - 1]
+  if (!profile) throw new Error('User not found!')
+  return profile
+}
+
 export async function getRecentTransactions() {
   return recentTransactions
 }
@@ -35,13 +42,13 @@ export async function getWeeklyActivity() {
   return weeklyActivities
 }
 
-export async function getOverview() {
+export async function getOverviewForUser(userId: number) {
   await sleep(3000)
   return {
     balanceHistory,
     expenseStatistics,
     cards,
-    profiles,
+    profile: profiles[userId - 1],
     recentTransactions,
     transferContacts,
     weeklyActivities,

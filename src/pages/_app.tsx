@@ -6,6 +6,7 @@ import { Inter, Lato } from 'next/font/google'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
+import { getProfileById } from '@/services/api'
 import '@/styles/globals.css'
 
 const inter = Inter({
@@ -21,14 +22,15 @@ const lato = Lato({
 
 const queryClient = new QueryClient()
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, profile }: AppProps & { profile: Profile }) {
   return (
     <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} {...{ fonts: { inter, lato } }} />
+      <Component {...pageProps} {...{ fonts: { inter, lato }, profile }} />
     </QueryClientProvider>
   )
 }
 
+type Profile = import('@/composition/settings/EditProfile').Profile
 export type LoadedFonts = {
   inter: NextFontWithVariable
   lato: NextFontWithVariable
@@ -36,4 +38,11 @@ export type LoadedFonts = {
 
 export type PassedProps = {
   fonts: LoadedFonts
+  profile: Profile
+}
+
+App.getInitialProps = async () => {
+  return {
+    profile: await getProfileById(1),
+  }
 }
