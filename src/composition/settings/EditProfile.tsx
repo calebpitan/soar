@@ -124,32 +124,28 @@ const formConfigs = [
   },
 ] as const satisfies Array<FormConfig>
 
-const formSchema = z
-  .object({
-    name: z.string(),
-    username: z.string().min(3, { message: 'Username cannot be less than 3 characters' }),
-    email: z.string().email({ message: 'A valid email address is expected' }),
-    password: z
-      .string()
-      .min(8, { message: 'Password cannot be less than 8 characters' })
-      .readonly(),
-    dob: z.string().date(),
-    presentAddress: z.string(),
-    permanentAddress: z.string(),
-    city: z.string(),
-    postalCode: z.string(),
-    country: z.string(),
-  })
-  .required({
-    city: true,
-    country: true,
-    presentAddress: true,
-    dob: true,
-    email: true,
-    username: true,
-    name: true,
-    postalCode: true,
-  })
+const formSchema = z.object({
+  name: z.string({ required_error: 'Name is required' }).min(1),
+  username: z
+    .string({ required_error: 'Username is required' })
+    .min(3, { message: 'Username cannot be less than 3 characters' }),
+  email: z.string().email({ message: 'A valid email address is expected' }),
+  password: z.string().min(8, { message: 'Password cannot be less than 8 characters' }).readonly(),
+  dob: z
+    .string()
+    .date()
+    .min(1, { message: 'Date of birth is required' })
+    .refine((value) => !isNaN(Date.parse(value)), {
+      message: 'Invalid date format',
+    }),
+  presentAddress: z
+    .string()
+    .min(1, { message: 'Present address cannot be empty as it is required' }),
+  permanentAddress: z.string(),
+  city: z.string().min(1, { message: 'City cannot be empty as it is required' }),
+  postalCode: z.string().min(1, { message: 'Postal code cannot be empty as it is required' }),
+  country: z.string().min(1, { message: 'Country cannot be empty as it is required' }),
+})
 
 export const EditProfileSettings: React.FC<EditProfileSettingsProps> = ({
   className,
